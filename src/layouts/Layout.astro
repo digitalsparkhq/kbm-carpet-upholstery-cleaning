@@ -1,0 +1,23 @@
+---
+import Navigation from '../components/Navigation.astro';
+import BookingModal from '../components/BookingModal.astro';
+import '../styles/global.css';
+
+const { title, description } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title} | KSW Cleaning</title>
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-white antialiased">
+    <Navigation />
+    <main>
+      <slot />
+    </main>
+    <BookingModal />
+  </body>
+</html>

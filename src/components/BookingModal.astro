@@ -1,0 +1,208 @@
+---
+/* Optimized Modal with Custom Multi-Select Logic */
+---
+
+<dialog id="booking-modal" class="mx-auto my-auto backdrop:bg-black/60 p-0 rounded-2xl shadow-2xl max-w-4xl w-[95%] max-h-[90vh] overflow-hidden font-sans border-none">
+  <div class="bg-brand-sage p-6 flex justify-between items-center text-white sticky top-0 z-10">
+    <div>
+      <h2 class="font-display text-2xl italic text-white">Book Your Miracle Clean</h2>
+      <p class="text-[10px] opacity-90 uppercase tracking-widest mt-1 text-white">Sian & Kai • KSW Property Services</p>
+    </div>
+    <button onclick="document.getElementById('booking-modal').close()" class="bg-white/20 hover:bg-white/40 w-10 h-10 rounded-full transition-all flex items-center justify-center text-xl cursor-pointer">✕</button>
+  </div>
+
+  <form class="p-8 overflow-y-auto max-h-[calc(90vh-100px)] space-y-8 bg-white" action="#" method="POST" enctype="multipart/form-data">
+    
+    <section>
+      <h3 class="text-brand-sage font-bold uppercase text-xs tracking-[0.2em] mb-4">1. Contact Details</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input type="text" name="first_name" placeholder="First Name" class="border-b border-gray-300 p-3 focus:border-brand-sage outline-none" required />
+        <input type="text" name="last_name" placeholder="Last Name" class="border-b border-gray-300 p-3 focus:border-brand-sage outline-none" required />
+        <input type="email" name="email" placeholder="Email Address" class="border-b border-gray-300 p-3 focus:border-brand-sage outline-none" required />
+        <input type="tel" name="phone" placeholder="Phone Number" class="border-b border-gray-300 p-3 focus:border-brand-sage outline-none" required />
+      </div>
+    </section>
+
+    <section>
+      <h3 class="text-brand-sage font-bold uppercase text-xs tracking-[0.2em] mb-4">2. Property Location</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input type="text" name="address" placeholder="Street Address" class="col-span-full border-b border-gray-300 p-3 focus:border-brand-sage outline-none" required />
+        <input type="text" name="unit" placeholder="Unit / Suite (Optional)" class="border-b border-gray-300 p-3 focus:border-brand-sage outline-none" />
+        <input type="text" name="city" placeholder="City" class="border-b border-gray-300 p-3 focus:border-brand-sage outline-none" required />
+        <input type="text" name="county" placeholder="County" class="border-b border-gray-300 p-3 focus:border-brand-sage outline-none" required />
+        <input type="text" name="postcode" placeholder="Post Code" class="border-b border-gray-300 p-3 focus:border-brand-sage outline-none" required />
+      </div>
+    </section>
+
+    <section>
+      <h3 class="text-brand-sage font-bold uppercase text-xs tracking-[0.2em] mb-4 text-brand-sage">3. Cleaning Requirements</h3>
+      <div class="relative">
+        <button type="button" id="requirements-toggle" class="w-full text-left border-b border-gray-300 p-3 flex justify-between items-center cursor-pointer hover:bg-gray-50">
+          <span id="placeholder-text" class="text-gray-400">Select services...</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform" id="chevron"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        
+        <div id="requirements-menu" class="hidden absolute left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-20 p-2 grid grid-cols-1 md:grid-cols-2 gap-1">
+          {["Deep Cleaning", "End of Tenancy", "Post-Renovation", "Carpet Cleaning", "Interior Windows", "Oven (Inside)", "Fridge (Inside)", "Microwave (Inside)", "Dishwasher (Inside)", "Washing Machine (Inside)", "Extractor Hood"].map((item) => (
+            <button type="button" class="option-btn text-left px-4 py-2 rounded-lg hover:bg-brand-light transition-colors text-sm cursor-pointer" data-value={item}>
+              {item}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div id="selected-tags" class="flex flex-wrap gap-2 mt-4"></div>
+      <input type="hidden" name="services" id="services-input" />
+    </section>
+
+    <section class="bg-brand-light/50 p-6 rounded-2xl">
+      <h3 class="text-brand-sage font-bold uppercase text-xs tracking-[0.2em] mb-4 text-center">4. Room Inventory</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+        {["Living room", "Kitchen", "Bedroom", "Toilet", "Bathroom", "Dining room", "Office", "Utility/Laundry", "Conservatory", "Carpet Cleaner (Rooms)"].map((room) => (
+          <div class="flex flex-col">
+            <label class="text-[10px] mb-1 text-gray-500 uppercase">{room}</label>
+            <input type="number" name={`room_${room.toLowerCase().replace(/ /g, '_')}`} min="0" placeholder="0" class="border-b border-brand-sage bg-transparent p-1 focus:bg-white transition-all outline-none" required />
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-brand-sage font-bold uppercase text-xs tracking-[0.2em] mb-4">5. Scheduling</h3>
+        <label class="text-[10px] text-gray-500 block mb-1">Preferred Date</label>
+        <input type="date" name="date_primary" class="w-full border-b border-gray-300 p-2 mb-4 outline-none focus:border-brand-sage" />
+        <label class="text-[10px] text-gray-500 block mb-1">Alternative Date</label>
+        <input type="date" name="date_secondary" class="w-full border-b border-gray-300 p-2 outline-none focus:border-brand-sage" />
+      </div>
+      <div>
+        <h3 class="text-brand-sage font-bold uppercase text-xs tracking-[0.2em] mb-4 opacity-0">Time</h3>
+        <label class="text-[10px] text-gray-500 block mb-2 uppercase">Arrival Window</label>
+        <select name="arrival_time" class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-brand-sage cursor-pointer">
+          <option>Any time</option>
+          <option>Morning</option>
+          <option>Afternoon</option>
+          <option>Evening</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <textarea name="concerns" placeholder="Do you have any specific concerns? (Pets, access, key location...)" class="w-full border border-gray-300 rounded-xl p-4 h-24 outline-none focus:border-brand-sage focus:ring-1 focus:ring-brand-sage"></textarea>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="text-[10px] text-gray-500 block mb-2 uppercase">Property Status</label>
+          <select name="property_status" class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-brand-sage cursor-pointer">
+            <option disabled selected>Select status...</option>
+            <option>Furnished</option>
+            <option>Unfurnished</option>
+            <option>Occupied</option>
+            <option>Vacant</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-[10px] text-gray-500 block mb-2 uppercase">How did you hear about us?</label>
+          <input type="text" name="referral" class="w-full border-b border-gray-300 p-3 outline-none focus:border-brand-sage" required />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="text-brand-sage font-bold uppercase text-xs tracking-[0.2em] mb-4 text-center">6. Visuals (Max 5MB)</h3>
+      <div class="border-2 border-dashed border-brand-sky rounded-2xl p-8 text-center hover:bg-brand-light transition-colors cursor-pointer relative group">
+        <input type="file" name="files" multiple accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" onchange="checkFileSize(this)" />
+        <p class="text-brand-sage font-bold group-hover:scale-105 transition-transform">Drop images here or click to upload</p>
+        <p class="text-[10px] text-gray-400 mt-2 italic">Max 5MB per file. Help us see what we're cleaning!</p>
+      </div>
+    </section>
+
+    <div class="pb-10 pt-4">
+      <button type="submit" class="w-full bg-brand-sage text-white py-5 rounded-full font-bold text-lg shadow-xl hover:bg-opacity-90 transition-all cursor-pointer">
+        SEND BOOKING REQUEST
+      </button>
+    </div>
+  </form>
+</dialog>
+
+<script is:inline>
+  // Requirement Dropdown Logic
+  const toggle = document.getElementById('requirements-toggle');
+  const menu = document.getElementById('requirements-menu');
+  const chevron = document.getElementById('chevron');
+  const tagContainer = document.getElementById('selected-tags');
+  const hiddenInput = document.getElementById('services-input');
+  const placeholder = document.getElementById('placeholder-text');
+  
+  let selectedServices = new Set();
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menu.classList.toggle('hidden');
+    chevron.classList.toggle('rotate-180');
+  });
+
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const val = btn.dataset.value;
+      
+      if (!selectedServices.has(val)) {
+        selectedServices.add(val);
+        addTag(val);
+      }
+      menu.classList.add('hidden');
+      chevron.classList.remove('rotate-180');
+      updateInput();
+    });
+  });
+
+  function addTag(val) {
+    const tag = document.createElement('span');
+    tag.className = "bg-brand-sage text-white px-3 py-1 rounded-full text-xs flex items-center gap-2 animate-in fade-in zoom-in duration-200";
+    tag.innerHTML = `${val} <button type="button" class="hover:text-red-200 text-lg leading-none cursor-pointer">&times;</button>`;
+    
+    tag.querySelector('button').onclick = () => {
+      selectedServices.delete(val);
+      tag.remove();
+      updateInput();
+    };
+    
+    tagContainer.appendChild(tag);
+    placeholder.classList.add('hidden');
+  }
+
+  function updateInput() {
+    hiddenInput.value = Array.from(selectedServices).join(', ');
+    if (selectedServices.size === 0) placeholder.classList.remove('hidden');
+  }
+
+  // Close dropdown when clicking outside
+  window.addEventListener('click', () => {
+    menu.classList.add('hidden');
+    chevron.classList.remove('rotate-180');
+  });
+
+  // File size check
+  function checkFileSize(input) {
+    const files = input.files;
+    for (let i = 0; i < files.length; i++) {
+      if (files[i].size > 5242880) {
+        alert(`File "${files[i].name}" is too large. Max 5MB per file.`);
+        input.value = "";
+        return;
+      }
+    }
+  }
+</script>
+
+<style>
+  dialog::backdrop {
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  /* Custom scrollbar for better fresh look */
+  form::-webkit-scrollbar { width: 6px; }
+  form::-webkit-scrollbar-track { background: transparent; }
+  form::-webkit-scrollbar-thumb { background: #e0f2f1; border-radius: 10px; }
+  form::-webkit-scrollbar-thumb:hover { background: #616b47; }
+</style>

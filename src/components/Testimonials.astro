@@ -1,0 +1,124 @@
+---
+/* src/components/Testimonials.astro */
+const testimonials = [
+  { name: "Jessica Loveday", tag: "First Home Miracle", text: "Just incredible! I bought my first home and upon getting the keys it was grim. These guys turned it from a house I didn’t want to bring my children into to a sparkling home. Miracle workers. The oven looks brand new!" },
+  { name: "Sylvia Sanchez", tag: "Mental Health Support", text: "I recently had my flat cleaned by a wonderful team who were not only thorough but also incredibly compassionate. They were mindful of my mental health needs and worked around them with great care." },
+  { name: "Lucy Afrika", tag: "Short Notice / Move-in", text: "Very grateful to Sian and Kai for cleaning my mum’s house at such short notice! They were fantastic to communicate with and very attentive. Mum was so relieved to move into a clean and fresh house!" },
+  { name: "Susie Scott", tag: "Attention to Detail", text: "Highly recommend this brilliant team! Sian and Kai have transformed my flat with their thorough, conscientious service and attention to detail. They are also really lovely, warm and kind people." },
+  { name: "Agata Świstowska", tag: "Deep Clean Excellence", text: "I couldn't be more pleased! From start to finish, their team was professional, thorough, and efficient." }
+];
+---
+
+<section class="py-24 bg-brand-light/30 relative overflow-hidden min-h-[900px] flex flex-col justify-center">
+  
+  <div class="absolute inset-0 pointer-events-none select-none z-0">
+    <svg class="absolute top-10 right-[10%] text-brand-sage opacity-10 -rotate-12 w-48 h-48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5"><path d="M3 21h18M6 21V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v17M9 7h6M9 12h6M12 17v4"/></svg>
+    <svg class="absolute bottom-20 left-[5%] text-brand-sage opacity-10 rotate-12 w-40 h-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5"><path d="M12 11h9M12 13h7M7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Z"/><path d="M11 12l2.5 2.5 5-5"/></svg>
+    <svg class="absolute top-1/4 left-[5%] text-brand-sage opacity-[0.05] w-24 h-24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="3"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/></svg>
+    <svg class="absolute bottom-1/4 right-[5%] text-brand-sage opacity-[0.05] w-20 h-20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M7 12V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8l3 4v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4l3-4Z"/></svg>
+    <svg class="absolute top-1/2 left-1/2 -translate-x-1/2 text-brand-sage opacity-[0.03] w-64 h-64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.2"><path d="M12 3v18M3 12h18"/></svg>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+    <div class="text-center mb-16">
+      <span class="text-brand-sage font-bold tracking-widest uppercase text-xs block mb-4">Real Experiences</span>
+      <h2 class="font-display text-4xl md:text-5xl text-brand-deep leading-tight">What Our <span class="italic text-brand-sage">Clients Say</span></h2>
+    </div>
+
+    <div class="relative px-0 md:px-16">
+      <button id="prev-btn" class="absolute left-0 top-1/2 -translate-y-1/2 z-40 bg-white w-12 h-12 rounded-full shadow-xl text-brand-sage hover:bg-brand-sage hover:text-white transition-all cursor-pointer flex items-center justify-center border border-brand-sky/20 active:scale-90">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <button id="next-btn" class="absolute right-0 top-1/2 -translate-y-1/2 z-40 bg-white w-12 h-12 rounded-full shadow-xl text-brand-sage hover:bg-brand-sage hover:text-white transition-all cursor-pointer flex items-center justify-center border border-brand-sky/20 active:scale-90">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+
+      <div id="carousel-viewport" class="overflow-hidden rounded-[3rem]">
+        <div id="carousel-track" class="flex transition-transform duration-500 ease-out">
+          </div>
+      </div>
+    </div>
+
+    <div class="flex justify-center gap-3 mt-12 mb-16" id="dots-wrapper">
+      {testimonials.map((_, i) => (
+        <button class="dot-nav w-3 h-3 rounded-full border-2 border-brand-sage/40 transition-all duration-300 cursor-pointer" data-index={i}></button>
+      ))}
+    </div>
+
+    <div class="text-center">
+      <button onclick="document.getElementById('booking-modal').showModal()" class="bg-brand-sage text-white px-12 py-5 rounded-full font-bold shadow-xl hover:scale-105 transition-transform cursor-pointer border-2 border-transparent hover:border-brand-sage hover:bg-white hover:text-brand-sage uppercase tracking-wider">
+        Message US for a quote
+      </button>
+    </div>
+  </div>
+</section>
+
+<script is:inline define:vars={{ testimonials }}>
+  const track = document.getElementById('carousel-track');
+  const dots = document.querySelectorAll('.dot-nav');
+  const nextBtn = document.getElementById('next-btn');
+  const prevBtn = document.getElementById('prev-btn');
+  
+  let currentIndex = 0;
+  const totalOriginal = testimonials.length;
+
+  function createCard(item) {
+    // FIXED: Added backticks around the HTML to make it a valid template literal string
+    return `<div class="flex-shrink-0 w-full md:w-1/3 px-4">
+        <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-brand-sky/10 flex flex-col h-[420px] justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-6">
+              <span class="inline-block px-4 py-1.5 rounded-full bg-brand-sky/30 text-brand-sage text-[10px] font-bold uppercase tracking-wider">${item.tag}</span>
+              <div class="text-brand-sage flex gap-0.5">
+                ${Array(5).fill('<svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>').join('')}
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed italic font-light">"${item.text}"</p>
+          </div>
+          <div class="flex items-center gap-4 border-t pt-6 border-gray-100">
+            <div class="w-12 h-12 rounded-full bg-brand-sage text-white flex items-center justify-center font-bold text-lg shadow-inner">${item.name[0]}</div>
+            <span class="font-bold text-brand-deep">${item.name}</span>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  // Populate clones
+  const originals = testimonials.map(item => createCard(item)).join('');
+  const clonesBefore = testimonials.slice(-3).map(item => createCard(item)).join('');
+  const clonesAfter = testimonials.slice(0, 3).map(item => createCard(item)).join('');
+  track.innerHTML = clonesBefore + originals + clonesAfter;
+
+  function updateSlider(index, animate = true) {
+    const cardWidth = track.querySelector('div').offsetWidth;
+    currentIndex = index;
+    
+    track.style.transition = animate ? 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)' : 'none';
+    
+    const targetTranslate = -( (index + 3) * cardWidth );
+    
+    // FIXED: Added backticks here to correctly interpolate the JS variable
+    track.style.transform = `translateX(${targetTranslate}px)`;
+
+    const dotIndex = ( (index % totalOriginal) + totalOriginal ) % totalOriginal;
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('bg-brand-sage', i === dotIndex);
+      dot.classList.toggle('w-10', i === dotIndex);
+      dot.classList.toggle('w-3', i !== dotIndex);
+    });
+  }
+
+  track.addEventListener('transitionend', () => {
+    if (currentIndex >= totalOriginal) updateSlider(0, false);
+    if (currentIndex <= -1) updateSlider(totalOriginal - 1, false);
+  });
+
+  // FIXED: Swapped the +1 and -1 logic so the visual sliding direction matches your preference
+  prevBtn.onclick = () => updateSlider(currentIndex + 1); 
+  nextBtn.onclick = () => updateSlider(currentIndex - 1); 
+  
+  dots.forEach((dot, i) => dot.onclick = () => updateSlider(i));
+
+  updateSlider(0, false);
+  window.addEventListener('resize', () => updateSlider(currentIndex, false));
+</script>
