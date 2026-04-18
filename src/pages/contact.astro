@@ -1,0 +1,287 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// High-quality image of a clean living space/carpet
+const contactHeroImage = "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=2940&auto=format&fit=crop";
+---
+
+<Layout 
+  title="Contact Us | KBM Carpet Upholstery & Cleaning Services"
+  description="Book your professional deep clean today. KBM provides industrial-grade carpet and upholstery cleaning across Hull & East Riding."
+>
+  
+  <section class="relative w-full h-[40vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-brand-navy pt-20">
+    <div class="absolute inset-0 z-0">
+      <img 
+        src={contactHeroImage} 
+        alt="KBM Cleaning Services Contact" 
+        class="absolute inset-0 w-full h-full object-cover opacity-30 min-w-full min-h-full"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/80 to-transparent z-10"></div>
+    </div>
+
+    <div class="relative z-20 text-center px-6 max-w-4xl mx-auto mt-10">
+      <span class="text-brand-gold font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Get In Touch</span>
+      <h1 class="text-4xl md:text-6xl font-display text-white mb-4">
+        Ready for a <span class="italic text-brand-gold">Deep Clean?</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-2xl mx-auto">
+        Fill out the form below to send your details directly to our WhatsApp. We aim to reply instantly with a free, no-obligation quote.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-24 bg-brand-white px-6 relative overflow-hidden">
+    <div class="absolute top-0 right-0 opacity-[0.02] pointer-events-none">
+      <svg width="600" height="600" viewBox="0 0 24 24" fill="none" stroke="#0a2351" stroke-width="0.5"><path d="M12 3v18M3 12h18"/></svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative z-10">
+      
+      <div class="lg:col-span-4 flex flex-col gap-8">
+        
+        <div class="bg-white border border-gray-100 rounded-3xl p-8 space-y-8 shadow-xl">
+          <div class="flex gap-4">
+            <div class="bg-brand-navy/5 p-3 rounded-full text-brand-gold flex-shrink-0 h-fit">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /></svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-brand-navy uppercase tracking-wide mb-1 text-sm">Service Area</h4>
+              <p class="text-gray-600 font-medium leading-relaxed">Kingston upon Hull,<br />East Riding, HU12</p>
+            </div>
+          </div>
+          
+          <div class="flex gap-4 border-t border-gray-100 pt-6">
+            <div class="bg-brand-navy/5 p-3 rounded-full text-brand-gold flex-shrink-0 h-fit">
+               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-brand-navy uppercase tracking-wide mb-1 text-sm">Call or Text</h4>
+              <a href="tel:+447354234787" class="text-gray-600 font-medium hover:text-brand-gold transition-colors">07354 234787</a>
+            </div>
+          </div>
+
+          <div class="flex gap-4 border-t border-gray-100 pt-6">
+            <div class="bg-brand-navy/5 p-3 rounded-full text-brand-gold flex-shrink-0 h-fit">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-brand-navy uppercase tracking-wide mb-1 text-sm">Email Us</h4>
+              <a href="mailto:kbmspa@outlook.com" class="text-gray-600 font-medium hover:text-brand-gold transition-colors break-all">kbmspa@outlook.com</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-8 bg-brand-navy rounded-3xl text-white shadow-xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-brand-gold/10 rounded-full blur-2xl"></div>
+          <h3 class="font-display italic text-2xl mb-4 text-brand-gold relative z-10">Why book with us?</h3>
+          <ul class="space-y-3 text-sm text-gray-300 relative z-10">
+            <li class="flex items-center gap-3"><span class="text-brand-gold font-bold">✓</span> Transparent, honest pricing</li>
+            <li class="flex items-center gap-3"><span class="text-brand-gold font-bold">✓</span> Industrial extraction machines</li>
+            <li class="flex items-center gap-3"><span class="text-brand-gold font-bold">✓</span> Child and pet-safe products</li>
+            <li class="flex items-center gap-3"><span class="text-brand-gold font-bold">✓</span> Fast drying times</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lg:col-span-8 bg-white border border-gray-100 p-8 md:p-12 rounded-[2.5rem] shadow-2xl">
+        <h2 class="text-3xl font-display text-brand-navy mb-2 italic">Request a Quote</h2>
+        <p class="text-gray-500 mb-8 font-medium text-sm">Fill in the details below and we will get back to you via WhatsApp.</p>
+        
+        <form id="contact-page-form" class="space-y-8">
+          
+          <section>
+            <h3 class="text-brand-navy font-bold uppercase text-xs tracking-[0.2em] mb-4 pb-2 border-b border-gray-100">1. Contact Details</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <input type="text" name="first_name" placeholder="First Name" class="border-b border-gray-300 p-3 focus:border-brand-gold outline-none transition-colors bg-transparent" required />
+              <input type="text" name="last_name" placeholder="Last Name" class="border-b border-gray-300 p-3 focus:border-brand-gold outline-none transition-colors bg-transparent" required />
+              <input type="email" name="email" placeholder="Email Address" class="border-b border-gray-300 p-3 focus:border-brand-gold outline-none transition-colors bg-transparent" required />
+              <input type="tel" name="phone" placeholder="Phone Number" class="border-b border-gray-300 p-3 focus:border-brand-gold outline-none transition-colors bg-transparent" required />
+            </div>
+          </section>
+
+          <section>
+            <h3 class="text-brand-navy font-bold uppercase text-xs tracking-[0.2em] mb-4 pb-2 border-b border-gray-100">2. Property Location</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <input type="text" name="address" placeholder="Street Address" class="col-span-full border-b border-gray-300 p-3 focus:border-brand-gold outline-none transition-colors bg-transparent" required />
+              <input type="text" name="unit" placeholder="Unit / Suite (Optional)" class="border-b border-gray-300 p-3 focus:border-brand-gold outline-none transition-colors bg-transparent" />
+              <input type="text" name="city" placeholder="City / Town" class="border-b border-gray-300 p-3 focus:border-brand-gold outline-none transition-colors bg-transparent" required />
+              <input type="text" name="postcode" placeholder="Post Code" class="border-b border-gray-300 p-3 focus:border-brand-gold outline-none transition-colors bg-transparent" required />
+            </div>
+          </section>
+
+          <section>
+            <h3 class="text-brand-navy font-bold uppercase text-xs tracking-[0.2em] mb-4 pb-2 border-b border-gray-100">3. Cleaning Requirements</h3>
+            <div class="relative">
+              <button type="button" id="contact-requirements-toggle" class="w-full text-left border border-gray-200 rounded-xl p-4 flex justify-between items-center cursor-pointer hover:border-brand-gold transition-colors bg-gray-50">
+                <span id="contact-placeholder-text" class="text-gray-400">Select required services...</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform text-brand-navy" id="contact-chevron"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              
+              <div id="contact-requirements-menu" class="hidden absolute left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-2xl z-20 p-2 grid grid-cols-1 md:grid-cols-2 gap-1 max-h-[300px] overflow-y-auto">
+                {["Carpet Cleaning", "Sofa & Upholstery Cleaning", "Stain Protection (Asgard)", "Pet Odour & Stain Removal", "Rug Restoration", "Mattress Deep Clean", "Commercial / Office Floors", "End of Tenancy Carpets"].map((item) => (
+                  <button type="button" class="contact-option-btn text-left px-4 py-3 rounded-lg hover:bg-brand-navy/5 transition-colors text-sm cursor-pointer text-brand-navy font-medium" data-value={item}>
+                    {item}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div id="contact-selected-tags" class="flex flex-wrap gap-2 mt-4"></div>
+            <input type="hidden" name="services" id="contact-services-input" />
+          </section>
+
+          <section class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-brand-navy/5 p-6 rounded-2xl border border-brand-navy/10">
+            <div class="col-span-full md:col-span-1">
+              <h3 class="text-brand-navy font-bold uppercase text-xs tracking-[0.2em] mb-4">4. Timescale</h3>
+              <label class="text-[10px] text-gray-500 block mb-2 uppercase font-bold">When do you need this done?</label>
+              <select name="timescale" class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:border-brand-gold cursor-pointer bg-white text-brand-navy">
+                <option disabled selected>Select urgency...</option>
+                <option>As soon as possible</option>
+                <option>Within 1-2 weeks</option>
+                <option>Within a month</option>
+                <option>Just getting a quote for now</option>
+              </select>
+            </div>
+
+            <div class="col-span-full md:col-span-1">
+              <h3 class="text-brand-navy font-bold uppercase text-xs tracking-[0.2em] mb-4">5. Scheduling</h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="text-[10px] text-gray-500 block mb-1 uppercase font-bold">Preferred Date</label>
+                  <input type="date" name="date_primary" class="w-full border-b border-gray-300 p-2 outline-none focus:border-brand-gold bg-transparent" />
+                </div>
+                <div>
+                  <label class="text-[10px] text-gray-500 block mb-1 uppercase font-bold">Arrival</label>
+                  <select name="arrival_time" class="w-full border-b border-gray-300 p-2 outline-none focus:border-brand-gold bg-transparent cursor-pointer">
+                    <option>Any time</option>
+                    <option>Morning</option>
+                    <option>Afternoon</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="space-y-4">
+            <h3 class="text-brand-navy font-bold uppercase text-xs tracking-[0.2em] mb-2 pb-2 border-b border-gray-100">6. Additional Details</h3>
+            <textarea name="concerns" placeholder="Please provide any details about stains, room sizes, or specific issues (e.g., 'Red wine stain on cream living room carpet')..." class="w-full border border-gray-200 rounded-xl p-4 h-32 outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold resize-none bg-gray-50 hover:bg-white transition-colors"></textarea>
+          </section>
+
+          <div class="pt-4">
+            <button type="submit" class="w-full bg-[#25D366] text-white py-5 rounded-full font-bold text-lg shadow-[0_10px_20px_-10px_rgba(37,211,102,0.6)] hover:bg-[#20bd5a] hover:-translate-y-1 transition-all cursor-pointer flex items-center justify-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.892a11.826 11.826 0 00-3.481-8.413z"/></svg>
+              SEND VIA WHATSAPP
+            </button>
+            <p class="text-[10px] text-gray-400 text-center mt-4">You will be redirected to WhatsApp to confirm your message before sending.</p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Requirements Dropdown Logic (Unique IDs for the Contact Page)
+      const pageToggle = document.getElementById('contact-requirements-toggle');
+      const pageMenu = document.getElementById('contact-requirements-menu');
+      const pageChevron = document.getElementById('contact-chevron');
+      const pageTagContainer = document.getElementById('contact-selected-tags');
+      const pageHiddenInput = document.getElementById('contact-services-input');
+      const pagePlaceholder = document.getElementById('contact-placeholder-text');
+      
+      let pageSelectedServices = new Set();
+
+      if (pageToggle) {
+        pageToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          pageMenu.classList.toggle('hidden');
+          pageChevron.classList.toggle('rotate-180');
+        });
+      }
+
+      document.querySelectorAll('.contact-option-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const val = btn.dataset.value;
+          
+          if (!pageSelectedServices.has(val)) {
+            pageSelectedServices.add(val);
+            addPageTag(val);
+          }
+          pageMenu.classList.add('hidden');
+          pageChevron.classList.remove('rotate-180');
+          updatePageInput();
+        });
+      });
+
+      function addPageTag(val) {
+        const tag = document.createElement('span');
+        tag.className = "bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs flex items-center gap-2 border border-brand-gold/30 shadow-sm";
+        tag.innerHTML = `${val} <button type="button" class="hover:text-white text-lg leading-none cursor-pointer">&times;</button>`;
+        
+        tag.querySelector('button').onclick = () => {
+          pageSelectedServices.delete(val);
+          tag.remove();
+          updatePageInput();
+        };
+        
+        pageTagContainer.appendChild(tag);
+        pagePlaceholder.classList.add('hidden');
+      }
+
+      function updatePageInput() {
+        pageHiddenInput.value = Array.from(pageSelectedServices).join(', ');
+        if (pageSelectedServices.size === 0) pagePlaceholder.classList.remove('hidden');
+      }
+
+      window.addEventListener('click', () => {
+        if(pageMenu && !pageMenu.classList.contains('hidden')) {
+           pageMenu.classList.add('hidden');
+           pageChevron.classList.remove('rotate-180');
+        }
+      });
+
+      // WhatsApp Submission Logic
+      const pageForm = document.getElementById('contact-page-form');
+      
+      if (pageForm) {
+        pageForm.addEventListener('submit', (e) => {
+          e.preventDefault(); 
+          
+          const fd = new FormData(pageForm);
+          
+          const name = `${fd.get('first_name')} ${fd.get('last_name')}`;
+          const phone = fd.get('phone');
+          const email = fd.get('email');
+          const address = `${fd.get('address')}${fd.get('unit') ? ', ' + fd.get('unit') : ''}, ${fd.get('city')}, ${fd.get('postcode')}`;
+          
+          const services = pageHiddenInput.value || "Not specified";
+          const timescale = fd.get('timescale') || "Not specified";
+          const date = fd.get('date_primary') || "Not specified";
+          const arrival = fd.get('arrival_time') || "Any time";
+          const concerns = fd.get('concerns') || "None";
+
+          const message = `*New Booking Enquiry (Contact Page)*\n\n` +
+                          `*Name:* ${name}\n` +
+                          `*Phone:* ${phone}\n` +
+                          `*Email:* ${email}\n` +
+                          `*Location:* ${address}\n\n` +
+                          `*Services Required:* ${services}\n` +
+                          `*Timescale:* ${timescale}\n` +
+                          `*Preferred Date:* ${date} (${arrival})\n\n` +
+                          `*Additional Details:*\n${concerns}`;
+
+          const waUrl = `https://wa.me/447354234787?text=${encodeURIComponent(message)}`;
+          window.open(waUrl, '_blank');
+          
+          pageForm.reset();
+          pageSelectedServices.clear();
+          pageTagContainer.innerHTML = '';
+          updatePageInput();
+        });
+      }
+    });
+  </script>
+
+</Layout>

@@ -1,11 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-sage: #616b47;
-  --color-brand-light: #f4f7f5;
-  --color-brand-sky: #e0f2f1;
-  --color-brand-deep: #1a1c1a;
+  /* KBM Brand Palette based on logo */
+  --color-brand-navy: #0a2351;      /* Deep Navy from logo background */
+  --color-brand-gold: #f9ad1b;      /* Vibrant Gold/Orange from the 'KBM' text */
+  --color-brand-accent: #11367d;    /* A slightly lighter blue for hovers/gradients */
+  --color-brand-white: #fcfcfc;     /* Clean off-white for sections */
+  --color-brand-dark: #051126;      /* Near-black navy for footer/text */
 
   --font-display: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
+}
+
+/* Base styles to ensure a clean start */
+@layer base {
+  body {
+    @apply font-sans text-brand-dark bg-brand-white;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
 }

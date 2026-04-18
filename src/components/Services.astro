@@ -1,0 +1,75 @@
+---
+/* src/components/Services.astro */
+const services = [
+  { title: "Carpet Cleaning", desc: "Industrial hot water extraction for a deep, hygienic revive.", icon: "🧼" },
+  { title: "Upholstery Care", desc: "Expert cleaning for sofas and armchairs, removing stains and odours.", icon: "🛋️" },
+  { title: "Stain Protection", desc: "Asgard stain guarding to protect your fabrics for 6-12 months.", icon: "🛡️" },
+  { title: "Rug Restoration", desc: "Bringing tired, high-traffic area rugs back to their original vibrance.", icon: "🎨" },
+  { title: "Pet Odour Removal", desc: "Specialist enzymes to eliminate bacteria and stubborn pet smells.", icon: "🐾" },
+  { title: "Commercial Cleans", desc: "Powerful cleaning for offices, showrooms, and retail spaces.", icon: "🏢" },
+  { title: "Eco-Friendly Solutions", desc: "Safe, non-toxic products that are gentle on kids and pets.", icon: "🌿" },
+  { title: "Free Honest Quotes", desc: "Transparent, no-pressure pricing for Hull & East Riding.", icon: "📋" }
+];
+---
+
+<section class="py-24 bg-brand-white overflow-hidden" id="services">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <div class="text-center max-w-3xl mx-auto mb-20 reveal-fade-up">
+      <span class="text-brand-gold font-bold tracking-widest uppercase text-xs mb-4 block">Our Expertise</span>
+      <h2 class="font-display text-4xl md:text-5xl text-brand-navy mb-6">
+        Professional cleaning that <br/> <span class="italic text-brand-gold">revives your home.</span>
+      </h2>
+      <p class="text-gray-600 leading-relaxed text-lg">
+        We don't just vacuum the surface. Using high-powered industrial extraction and heated solutions, we lift the dirt, allergens, and grime trapped deep in your fibres.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map((service, index) => (
+        <div 
+          class="reveal-pop-up p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:border-brand-gold transition-all group hover:-translate-y-2 cursor-default"
+          style={`transition-delay: ${index * 100}ms`}
+        >
+          <div class="text-4xl mb-6 group-hover:scale-125 transition-transform duration-500 inline-block">{service.icon}</div>
+          <h3 class="font-display text-xl mb-3 text-brand-navy font-bold">{service.title}</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">{service.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .reveal-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal-pop-up {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .reveal-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+</style>
+
+<script is:inline>
+  const observerOptions = { threshold: 0.1 };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-active');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal-fade-up, .reveal-pop-up').forEach(el => {
+    observer.observe(el);
+  });
+</script>

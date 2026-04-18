@@ -1,50 +1,49 @@
 ---
-/* Optimized Modal with Custom Multi-Select Logic */
+/* src/components/BookingModal.astro */
 ---
 
-<dialog id="booking-modal" class="mx-auto my-auto backdrop:bg-black/60 p-0 rounded-2xl shadow-2xl max-w-4xl w-[95%] max-h-[90vh] overflow-hidden font-sans border-none">
-  <div class="bg-brand-sage p-6 flex justify-between items-center text-white sticky top-0 z-10">
+<dialog id="booking-modal" class="mx-auto my-auto backdrop:bg-black/60 p-0 rounded-2xl shadow-2xl max-w-3xl w-[95%] max-h-[90vh] overflow-hidden font-sans border-none">
+  <div class="bg-brand-navy p-6 flex justify-between items-center text-white sticky top-0 z-10 border-b-4 border-brand-gold">
     <div>
-      <h2 class="font-display text-2xl italic text-white">Book Your Miracle Clean</h2>
-      <p class="text-[10px] opacity-90 uppercase tracking-widest mt-1 text-white">Sian & Kai • KSW Property Services</p>
+      <h2 class="font-display text-2xl italic text-brand-gold">Book Your Deep Clean</h2>
+      <p class="text-[10px] opacity-90 uppercase tracking-widest mt-1 text-white">KBM Carpet Upholstery & Cleaning Services</p>
     </div>
-    <button onclick="document.getElementById('booking-modal').close()" class="bg-white/20 hover:bg-white/40 w-10 h-10 rounded-full transition-all flex items-center justify-center text-xl cursor-pointer">✕</button>
+    <button onclick="document.getElementById('booking-modal').close()" class="bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full transition-all flex items-center justify-center text-xl cursor-pointer text-white">✕</button>
   </div>
 
-  <form class="p-8 overflow-y-auto max-h-[calc(90vh-100px)] space-y-8 bg-white" action="#" method="POST" enctype="multipart/form-data">
+  <form id="booking-form" class="p-8 overflow-y-auto max-h-[calc(90vh-100px)] space-y-8 bg-white">
     
     <section>
-      <h3 class="text-brand-sage font-bold uppercase text-xs tracking-[0.2em] mb-4">1. Contact Details</h3>
+      <h3 class="text-brand-navy font-bold uppercase text-xs tracking-[0.2em] mb-4">1. Contact Details</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input type="text" name="first_name" placeholder="First Name" class="border-b border-gray-300 p-3 focus:border-brand-sage outline-none" required />
-        <input type="text" name="last_name" placeholder="Last Name" class="border-b border-gray-300 p-3 focus:border-brand-sage outline-none" required />
-        <input type="email" name="email" placeholder="Email Address" class="border-b border-gray-300 p-3 focus:border-brand-sage outline-none" required />
-        <input type="tel" name="phone" placeholder="Phone Number" class="border-b border-gray-300 p-3 focus:border-brand-sage outline-none" required />
+        <input type="text" name="first_name" placeholder="First Name" class="border-b border-gray-300 p-3 focus:border-brand-gold outline-none transition-colors" required />
+        <input type="text" name="last_name" placeholder="Last Name" class="border-b border-gray-300 p-3 focus:border-brand-gold outline-none transition-colors" required />
+        <input type="email" name="email" placeholder="Email Address" class="border-b border-gray-300 p-3 focus:border-brand-gold outline-none transition-colors" required />
+        <input type="tel" name="phone" placeholder="Phone Number" class="border-b border-gray-300 p-3 focus:border-brand-gold outline-none transition-colors" required />
       </div>
     </section>
 
     <section>
-      <h3 class="text-brand-sage font-bold uppercase text-xs tracking-[0.2em] mb-4">2. Property Location</h3>
+      <h3 class="text-brand-navy font-bold uppercase text-xs tracking-[0.2em] mb-4">2. Property Location</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input type="text" name="address" placeholder="Street Address" class="col-span-full border-b border-gray-300 p-3 focus:border-brand-sage outline-none" required />
-        <input type="text" name="unit" placeholder="Unit / Suite (Optional)" class="border-b border-gray-300 p-3 focus:border-brand-sage outline-none" />
-        <input type="text" name="city" placeholder="City" class="border-b border-gray-300 p-3 focus:border-brand-sage outline-none" required />
-        <input type="text" name="county" placeholder="County" class="border-b border-gray-300 p-3 focus:border-brand-sage outline-none" required />
-        <input type="text" name="postcode" placeholder="Post Code" class="border-b border-gray-300 p-3 focus:border-brand-sage outline-none" required />
+        <input type="text" name="address" placeholder="Street Address" class="col-span-full border-b border-gray-300 p-3 focus:border-brand-gold outline-none transition-colors" required />
+        <input type="text" name="unit" placeholder="Unit / Suite (Optional)" class="border-b border-gray-300 p-3 focus:border-brand-gold outline-none transition-colors" />
+        <input type="text" name="city" placeholder="City / Town" class="border-b border-gray-300 p-3 focus:border-brand-gold outline-none transition-colors" required />
+        <input type="text" name="postcode" placeholder="Post Code" class="border-b border-gray-300 p-3 focus:border-brand-gold outline-none transition-colors" required />
       </div>
     </section>
 
     <section>
-      <h3 class="text-brand-sage font-bold uppercase text-xs tracking-[0.2em] mb-4 text-brand-sage">3. Cleaning Requirements</h3>
+      <h3 class="text-brand-navy font-bold uppercase text-xs tracking-[0.2em] mb-4">3. Cleaning Requirements</h3>
       <div class="relative">
-        <button type="button" id="requirements-toggle" class="w-full text-left border-b border-gray-300 p-3 flex justify-between items-center cursor-pointer hover:bg-gray-50">
+        <button type="button" id="requirements-toggle" class="w-full text-left border-b border-gray-300 p-3 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors">
           <span id="placeholder-text" class="text-gray-400">Select services...</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform" id="chevron"><path d="m6 9 6 6 6-6"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform text-brand-navy" id="chevron"><path d="m6 9 6 6 6-6"/></svg>
         </button>
         
         <div id="requirements-menu" class="hidden absolute left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-20 p-2 grid grid-cols-1 md:grid-cols-2 gap-1">
-          {["Deep Cleaning", "End of Tenancy", "Post-Renovation", "Carpet Cleaning", "Interior Windows", "Oven (Inside)", "Fridge (Inside)", "Microwave (Inside)", "Dishwasher (Inside)", "Washing Machine (Inside)", "Extractor Hood"].map((item) => (
-            <button type="button" class="option-btn text-left px-4 py-2 rounded-lg hover:bg-brand-light transition-colors text-sm cursor-pointer" data-value={item}>
+          {["Carpet Cleaning", "Sofa & Upholstery Cleaning", "Stain Protection (Asgard)", "Pet Odour & Stain Removal", "Rug Restoration", "Mattress Deep Clean", "Commercial / Office Floors", "End of Tenancy Carpets"].map((item) => (
+            <button type="button" class="option-btn text-left px-4 py-2 rounded-lg hover:bg-brand-navy/5 transition-colors text-sm cursor-pointer text-brand-navy font-medium" data-value={item}>
               {item}
             </button>
           ))}
@@ -54,78 +53,55 @@
       <input type="hidden" name="services" id="services-input" />
     </section>
 
-    <section class="bg-brand-light/50 p-6 rounded-2xl">
-      <h3 class="text-brand-sage font-bold uppercase text-xs tracking-[0.2em] mb-4 text-center">4. Room Inventory</h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-        {["Living room", "Kitchen", "Bedroom", "Toilet", "Bathroom", "Dining room", "Office", "Utility/Laundry", "Conservatory", "Carpet Cleaner (Rooms)"].map((room) => (
-          <div class="flex flex-col">
-            <label class="text-[10px] mb-1 text-gray-500 uppercase">{room}</label>
-            <input type="number" name={`room_${room.toLowerCase().replace(/ /g, '_')}`} min="0" placeholder="0" class="border-b border-brand-sage bg-transparent p-1 focus:bg-white transition-all outline-none" required />
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div>
-        <h3 class="text-brand-sage font-bold uppercase text-xs tracking-[0.2em] mb-4">5. Scheduling</h3>
-        <label class="text-[10px] text-gray-500 block mb-1">Preferred Date</label>
-        <input type="date" name="date_primary" class="w-full border-b border-gray-300 p-2 mb-4 outline-none focus:border-brand-sage" />
-        <label class="text-[10px] text-gray-500 block mb-1">Alternative Date</label>
-        <input type="date" name="date_secondary" class="w-full border-b border-gray-300 p-2 outline-none focus:border-brand-sage" />
-      </div>
-      <div>
-        <h3 class="text-brand-sage font-bold uppercase text-xs tracking-[0.2em] mb-4 opacity-0">Time</h3>
-        <label class="text-[10px] text-gray-500 block mb-2 uppercase">Arrival Window</label>
-        <select name="arrival_time" class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-brand-sage cursor-pointer">
-          <option>Any time</option>
-          <option>Morning</option>
-          <option>Afternoon</option>
-          <option>Evening</option>
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-gray-50 p-6 rounded-2xl border border-gray-100">
+      <div class="col-span-full md:col-span-1">
+        <h3 class="text-brand-navy font-bold uppercase text-xs tracking-[0.2em] mb-4">4. Timescale</h3>
+        <label class="text-[10px] text-gray-500 block mb-2 uppercase">When do you need this done?</label>
+        <select name="timescale" class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-brand-gold cursor-pointer bg-white text-brand-navy">
+          <option disabled selected>Select urgency...</option>
+          <option>As soon as possible</option>
+          <option>Within 1-2 weeks</option>
+          <option>Within a month</option>
+          <option>Just getting a quote for now</option>
         </select>
+      </div>
+
+      <div class="col-span-full md:col-span-1">
+        <h3 class="text-brand-navy font-bold uppercase text-xs tracking-[0.2em] mb-4">5. Scheduling</h3>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="text-[10px] text-gray-500 block mb-1 uppercase">Preferred Date</label>
+            <input type="date" name="date_primary" class="w-full border-b border-gray-300 p-2 outline-none focus:border-brand-gold bg-transparent" />
+          </div>
+          <div>
+            <label class="text-[10px] text-gray-500 block mb-1 uppercase">Arrival Window</label>
+            <select name="arrival_time" class="w-full border-b border-gray-300 p-2 outline-none focus:border-brand-gold bg-transparent cursor-pointer">
+              <option>Any time</option>
+              <option>Morning</option>
+              <option>Afternoon</option>
+            </select>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="space-y-4">
-      <textarea name="concerns" placeholder="Do you have any specific concerns? (Pets, access, key location...)" class="w-full border border-gray-300 rounded-xl p-4 h-24 outline-none focus:border-brand-sage focus:ring-1 focus:ring-brand-sage"></textarea>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label class="text-[10px] text-gray-500 block mb-2 uppercase">Property Status</label>
-          <select name="property_status" class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-brand-sage cursor-pointer">
-            <option disabled selected>Select status...</option>
-            <option>Furnished</option>
-            <option>Unfurnished</option>
-            <option>Occupied</option>
-            <option>Vacant</option>
-          </select>
-        </div>
-        <div>
-          <label class="text-[10px] text-gray-500 block mb-2 uppercase">How did you hear about us?</label>
-          <input type="text" name="referral" class="w-full border-b border-gray-300 p-3 outline-none focus:border-brand-sage" required />
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h3 class="text-brand-sage font-bold uppercase text-xs tracking-[0.2em] mb-4 text-center">6. Visuals (Max 5MB)</h3>
-      <div class="border-2 border-dashed border-brand-sky rounded-2xl p-8 text-center hover:bg-brand-light transition-colors cursor-pointer relative group">
-        <input type="file" name="files" multiple accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" onchange="checkFileSize(this)" />
-        <p class="text-brand-sage font-bold group-hover:scale-105 transition-transform">Drop images here or click to upload</p>
-        <p class="text-[10px] text-gray-400 mt-2 italic">Max 5MB per file. Help us see what we're cleaning!</p>
-      </div>
+      <h3 class="text-brand-navy font-bold uppercase text-xs tracking-[0.2em] mb-2">6. Additional Details</h3>
+      <textarea name="concerns" placeholder="Please provide any details about stains, room sizes, or specific issues (e.g., 'Red wine stain on cream living room carpet')..." class="w-full border border-gray-300 rounded-xl p-4 h-24 outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold resize-none"></textarea>
     </section>
 
     <div class="pb-10 pt-4">
-      <button type="submit" class="w-full bg-brand-sage text-white py-5 rounded-full font-bold text-lg shadow-xl hover:bg-opacity-90 transition-all cursor-pointer">
-        SEND BOOKING REQUEST
+      <button type="submit" class="w-full bg-[#25D366] text-white py-5 rounded-full font-bold text-lg shadow-xl hover:bg-[#20bd5a] hover:-translate-y-1 transition-all cursor-pointer flex items-center justify-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.892a11.826 11.826 0 00-3.481-8.413z"/></svg>
+        SEND VIA WHATSAPP
       </button>
+      <p class="text-[10px] text-gray-400 text-center mt-3">You will be redirected to WhatsApp to confirm your message before sending.</p>
     </div>
   </form>
 </dialog>
 
 <script is:inline>
-  // Requirement Dropdown Logic
+  // Tag Selection Logic
   const toggle = document.getElementById('requirements-toggle');
   const menu = document.getElementById('requirements-menu');
   const chevron = document.getElementById('chevron');
@@ -158,8 +134,8 @@
 
   function addTag(val) {
     const tag = document.createElement('span');
-    tag.className = "bg-brand-sage text-white px-3 py-1 rounded-full text-xs flex items-center gap-2 animate-in fade-in zoom-in duration-200";
-    tag.innerHTML = `${val} <button type="button" class="hover:text-red-200 text-lg leading-none cursor-pointer">&times;</button>`;
+    tag.className = "bg-brand-navy text-brand-gold px-3 py-1 rounded-full text-xs flex items-center gap-2 border border-brand-gold/30 transition-all";
+    tag.innerHTML = `${val} <button type="button" class="hover:text-white text-lg leading-none cursor-pointer">&times;</button>`;
     
     tag.querySelector('button').onclick = () => {
       selectedServices.delete(val);
@@ -176,33 +152,62 @@
     if (selectedServices.size === 0) placeholder.classList.remove('hidden');
   }
 
-  // Close dropdown when clicking outside
   window.addEventListener('click', () => {
     menu.classList.add('hidden');
     chevron.classList.remove('rotate-180');
   });
 
-  // File size check
-  function checkFileSize(input) {
-    const files = input.files;
-    for (let i = 0; i < files.length; i++) {
-      if (files[i].size > 5242880) {
-        alert(`File "${files[i].name}" is too large. Max 5MB per file.`);
-        input.value = "";
-        return;
-      }
-    }
-  }
+  // WHATSAPP SUBMISSION LOGIC
+  const form = document.getElementById('booking-form');
+  
+  form.addEventListener('submit', (e) => {
+    e.preventDefault(); // Stop standard form submission
+    
+    const fd = new FormData(form);
+    
+    // Construct message parts
+    const name = `${fd.get('first_name')} ${fd.get('last_name')}`;
+    const phone = fd.get('phone');
+    const email = fd.get('email');
+    const address = `${fd.get('address')}${fd.get('unit') ? ', ' + fd.get('unit') : ''}, ${fd.get('city')}, ${fd.get('postcode')}`;
+    
+    const services = hiddenInput.value || "Not specified";
+    const timescale = fd.get('timescale') || "Not specified";
+    const date = fd.get('date_primary') || "Not specified";
+    const arrival = fd.get('arrival_time') || "Any time";
+    const concerns = fd.get('concerns') || "None";
+
+    // Format for WhatsApp
+    const message = `*New Booking Enquiry (Website)*\n\n` +
+                    `*Name:* ${name}\n` +
+                    `*Phone:* ${phone}\n` +
+                    `*Email:* ${email}\n` +
+                    `*Location:* ${address}\n\n` +
+                    `*Services Required:* ${services}\n` +
+                    `*Timescale:* ${timescale}\n` +
+                    `*Preferred Date:* ${date} (${arrival})\n\n` +
+                    `*Additional Details/Concerns:*\n${concerns}`;
+
+    // Encode and redirect
+    const waUrl = `https://wa.me/447354234787?text=${encodeURIComponent(message)}`;
+    window.open(waUrl, '_blank');
+    
+    // Close modal and reset
+    document.getElementById('booking-modal').close();
+    form.reset();
+    selectedServices.clear();
+    tagContainer.innerHTML = '';
+    updateInput();
+  });
 </script>
 
 <style>
   dialog::backdrop {
     backdrop-filter: blur(8px);
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(5, 17, 38, 0.6); /* Brand Dark overlay */
   }
-  /* Custom scrollbar for better fresh look */
   form::-webkit-scrollbar { width: 6px; }
   form::-webkit-scrollbar-track { background: transparent; }
-  form::-webkit-scrollbar-thumb { background: #e0f2f1; border-radius: 10px; }
-  form::-webkit-scrollbar-thumb:hover { background: #616b47; }
+  form::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+  form::-webkit-scrollbar-thumb:hover { background: #0a2351; } /* Brand Navy on hover */
 </style>

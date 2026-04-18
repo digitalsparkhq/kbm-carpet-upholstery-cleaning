@@ -1,5 +1,6 @@
 ---
 import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 import BookingModal from '../components/BookingModal.astro';
 import '../styles/global.css';
 
@@ -8,16 +9,23 @@ const { title, description } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>{title} | KSW Cleaning</title>
+    <title>{title} | KBM Cleaning Services</title>
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-white antialiased">
+  <body class="bg-brand-white antialiased text-brand-dark overflow-x-hidden">
+    
     <Navigation />
+    
     <main>
       <slot />
     </main>
+    
+    <Footer />
+    
     <BookingModal />
+    
   </body>
 </html>
