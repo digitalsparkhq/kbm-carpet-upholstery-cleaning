@@ -4,16 +4,53 @@ import Footer from '../components/Footer.astro';
 import BookingModal from '../components/BookingModal.astro';
 import '../styles/global.css';
 
-const { title, description } = Astro.props;
+// We add fallback SEO props that hit your target keywords just in case a page misses them
+const { 
+  title = "Expert Carpet Cleaner Hull | Upholstery & Commercial Cleaning", 
+  description = "Professional domestic and commercial carpet cleaning in Hull & East Riding. We specialize in upholstery cleaning, rug cleaning, and end of tenancy cleaning." 
+} = Astro.props;
+
+// Local Business Schema JSON-LD
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CleaningService",
+  "name": "KBM Carpet Upholstery & Cleaning Services",
+  "image": "https://kbmcleaning.co.uk/images/logo.png", // Ensure you have the logo here
+  "@id": "https://kbmcleaning.co.uk",
+  "url": "https://kbmcleaning.co.uk",
+  "telephone": "+447354234787",
+  "email": "kbmspa@outlook.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kingston upon Hull",
+    "addressRegion": "East Riding",
+    "postalCode": "HU12",
+    "addressCountry": "UK"
+  },
+  "areaServed": [
+    "Kingston upon Hull", 
+    "East Riding of Yorkshire"
+  ],
+  "description": "Professional domestic and commercial carpet cleaning, upholstery cleaning, and rug cleaning services.",
+  "priceRange": "££",
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Carpet Cleaning" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Upholstery Cleaning" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Carpet Cleaning" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "End of Tenancy Cleaning" } }
+  ]
+};
 ---
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>{title} | KBM Cleaning Services</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
   <body class="bg-brand-white antialiased text-brand-dark overflow-x-hidden">
     

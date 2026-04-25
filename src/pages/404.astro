@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="404 - Page Not Found | KBM Carpet Upholstery & Cleaning Services"
+  description="Oops! The page you are looking for does not exist."
+>
+  <section class="min-h-[70vh] flex items-center justify-center bg-brand-white relative overflow-hidden py-24">
+    
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none">
+      <svg width="800" height="800" viewBox="0 0 24 24" fill="none" stroke="#0a2351" stroke-width="0.5"><path d="M12 3v18M3 12h18"/></svg>
+    </div>
+
+    <div class="max-w-2xl mx-auto px-6 text-center relative z-10">
+      
+      <h1 class="text-8xl md:text-9xl font-display font-black text-brand-gold mb-4 drop-shadow-sm">404</h1>
+      
+      <h2 class="text-3xl md:text-4xl font-display text-brand-navy mb-6 italic">
+        Oops! Page Not Found.
+      </h2>
+      
+      <p class="text-lg text-gray-600 mb-12 leading-relaxed max-w-md mx-auto">
+        It looks like the page you're looking for has been moved, deleted, or didn't exist in the first place. Let's get you back to a clean slate.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a 
+          href="/" 
+          class="bg-brand-navy text-brand-gold border-2 border-brand-navy px-10 py-4 rounded-full font-bold shadow-xl hover:-translate-y-1 hover:bg-brand-gold hover:text-brand-navy hover:border-brand-gold transition-all uppercase tracking-wider text-center w-full sm:w-auto"
+        >
+          Back to Home
+        </a>
+        
+        <a 
+          href="/contact" 
+          class="bg-transparent text-brand-navy border-2 border-brand-navy px-10 py-4 rounded-full font-bold shadow-sm hover:shadow-md hover:-translate-y-1 hover:bg-brand-navy/5 transition-all uppercase tracking-wider text-center w-full sm:w-auto"
+        >
+          Contact Us
+        </a>
+      </div>
+      
+    </div>
+  </section>
+</Layout>
