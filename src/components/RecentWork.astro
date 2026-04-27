@@ -30,6 +30,11 @@ const projects = [
     title: "End of Tenancy Cleaning (Carpets)",
     beforeImg: "/images/carpet-before3.jpeg",
     afterImg: "/images/carpet-after3.jpeg",
+  },
+  {
+    title: "Deep Carpet Extraction & Refresh",
+    beforeImg: "/images/carpet-before4.jpeg",
+    afterImg: "/images/carpet-after4.jpeg",
   }
 ];
 ---
@@ -51,9 +56,9 @@ const projects = [
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <div class="flex flex-wrap justify-center gap-12">
       {projects.map((project) => (
-        <div class="group flex flex-col reveal-on-scroll">
+        <div class="group flex flex-col reveal-on-scroll w-full md:w-[calc(50%-1.5rem)]">
           
           <div class="gallery-trigger relative w-full aspect-[16/10] flex rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer border border-gray-100"
                data-title={project.title}
@@ -81,7 +86,7 @@ const projects = [
 
           </div>
 
-          <h3 class="text-xl font-display italic text-brand-navy mt-6 px-2">{project.title}</h3>
+          <h3 class="text-xl font-display italic text-brand-navy mt-6 px-2 text-center md:text-left">{project.title}</h3>
         </div>
       ))}
     </div>
