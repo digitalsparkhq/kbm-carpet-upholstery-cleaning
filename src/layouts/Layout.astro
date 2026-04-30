@@ -50,7 +50,18 @@ const schema = {
     <link rel="icon" type="image/png" href="/images/favicon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     
+    <!-- Inject SEO Schema -->
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXXM34CD25"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-NXXM34CD25');
+    </script>
   </head>
   <body class="bg-brand-white antialiased text-brand-dark overflow-x-hidden">
     
