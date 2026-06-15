@@ -15,7 +15,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "CleaningService",
   "name": "KBM Carpet Upholstery & Cleaning Services",
-  "image": "https://kbmcleaning.co.uk/images/logo.png", // Ensure you have the logo here
+  "image": "https://kbmcleaning.co.uk/images/logo.png",
   "@id": "https://kbmcleaning.co.uk",
   "url": "https://kbmcleaning.co.uk",
   "telephone": "+447354234787",
@@ -70,7 +70,18 @@ const schema = {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      // 1. Google Analytics Property
       gtag('config', 'G-CET7VHC6EN');
+      
+      // 2. Google Ads Property (ADDED FOR CLIENT)
+      gtag('config', 'AW-17894501654');
+
+      // 3. Conversion Helper Function (Fires when a form is submitted or phone number is clicked)
+      window.reportConversion = function() {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17894501654/wOD8CLawz7wcEJba4dRC'
+        });
+      };
     </script>
   </head>
   <body class="bg-brand-white antialiased text-brand-dark overflow-x-hidden">

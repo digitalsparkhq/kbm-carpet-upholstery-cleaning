@@ -163,6 +163,12 @@
   form.addEventListener('submit', (e) => {
     e.preventDefault(); // Stop standard form submission
     
+    // --- NEW: FIRE GOOGLE ADS CONVERSION TRACKING BEFORE OPENING WHATSAPP ---
+    if (typeof window.reportConversion === 'function') {
+      window.reportConversion();
+    }
+    // ------------------------------------------------------------------------
+
     const fd = new FormData(form);
     
     // Construct message parts

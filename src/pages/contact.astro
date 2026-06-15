@@ -57,7 +57,8 @@ const contactHeroImage = "https://images.unsplash.com/photo-1527515637462-cff94e
             </div>
             <div>
               <h4 class="font-bold text-brand-navy uppercase tracking-wide mb-1 text-sm">Call or Text</h4>
-              <a href="tel:+447354234787" class="text-gray-600 font-medium hover:text-brand-gold transition-colors">07354 234787</a>
+              <!-- GOOGLE ADS CONVERSION TRACKING ADDED HERE -->
+              <a href="tel:+447354234787" onclick="window.reportConversion()" class="text-gray-600 font-medium hover:text-brand-gold transition-colors">07354 234787</a>
             </div>
           </div>
 
@@ -249,6 +250,12 @@ const contactHeroImage = "https://images.unsplash.com/photo-1527515637462-cff94e
         pageForm.addEventListener('submit', (e) => {
           e.preventDefault(); 
           
+          // --- NEW: FIRE GOOGLE ADS CONVERSION TRACKING ---
+          if (typeof window.reportConversion === 'function') {
+            window.reportConversion();
+          }
+          // ------------------------------------------------
+
           const fd = new FormData(pageForm);
           
           const name = `${fd.get('first_name')} ${fd.get('last_name')}`;
