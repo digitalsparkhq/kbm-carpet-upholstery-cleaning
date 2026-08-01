@@ -76,11 +76,17 @@ const schema = {
       // 2. Google Ads Property (ADDED FOR CLIENT)
       gtag('config', 'AW-17894501654');
 
-      // 3. Conversion Helper Function (Fires when a form is submitted or phone number is clicked)
+      // 3. Master Conversion Helper Function (Fires for both Google Ads & Facebook)
       window.reportConversion = function() {
+        // Send Conversion to Google Ads
         gtag('event', 'conversion', {
             'send_to': 'AW-17894501654/wOD8CLawz7wcEJba4dRC'
         });
+
+        // Send Lead Conversion to Facebook
+        if (typeof fbq === 'function') {
+            fbq('track', 'Lead');
+        }
       };
     </script>
 
