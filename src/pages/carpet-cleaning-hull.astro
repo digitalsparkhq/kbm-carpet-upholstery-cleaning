@@ -1,0 +1,239 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Optimized Images
+const img1 = "/images/carpet-after.jpg";
+const img2 = "/images/carpet-after2.jpg";
+const img3 = "/images/carpet-after3.jpeg";
+const img4 = "/images/carpet-after4.jpeg";
+
+const heroBg = "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=2940&auto=format&fit=crop";
+---
+
+<Layout 
+  title="Carpet Cleaning Hull | Industrial Deep Clean | KBM"
+  description="Professional domestic and commercial carpet cleaning in Hull. We use industrial-grade machines for a premium deep clean. Includes pet urine & odour treatment."
+  robots="noindex, nofollow"
+>
+  
+  <!-- 1. HERO SECTION -->
+  <section class="relative min-h-[75vh] flex items-center justify-center pt-32 pb-24 bg-brand-navy overflow-hidden">
+    <!-- Background Image with Overlay (Brighter) -->
+    <div class="absolute inset-0 z-0">
+      <img src={heroBg} alt="Professional Carpet Cleaning in Hull" class="w-full h-full object-cover opacity-40" />
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/70 to-brand-navy/30"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 text-center text-white relative z-10">
+      <span class="text-brand-gold font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Top-Rated Local Experts</span>
+      <h1 class="text-5xl md:text-7xl font-display mb-8 leading-tight">
+        Professional <span class="text-brand-gold italic">Carpet Cleaning Hull</span>
+      </h1>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-200 mb-12 leading-relaxed font-light">
+        We utilize state-of-the-art, industrial-grade extraction machines to deliver an unmatched deep clean for domestic and commercial carpets across Hull and the East Riding.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+        <button onclick="document.getElementById('booking-modal').showModal()" class="w-full sm:w-auto bg-brand-gold text-brand-navy px-10 py-4 rounded-full font-bold hover:bg-white transition-colors shadow-xl text-sm tracking-wide cursor-pointer">
+          GET A FREE QUOTE
+        </button>
+        <a href="tel:+447354234787" onclick="window.reportConversion()" class="w-full sm:w-auto px-10 py-4 rounded-full font-bold border-2 border-white/20 hover:border-brand-gold transition-colors text-sm tracking-wide cursor-pointer">
+          CALL 07354 234787
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. CORE SERVICES SECTION -->
+  <section class="py-24 bg-brand-white px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-display text-brand-navy italic mb-4">Our Specialized Services</h2>
+        <p class="text-gray-500 max-w-2xl mx-auto">We don't just wash carpets; we restore them. From residential living rooms to large office spaces, our heavy-duty equipment guarantees premium results.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="bg-brand-navy/5 w-12 h-12 rounded-full flex items-center justify-center text-brand-gold mb-6">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+          </div>
+          <h3 class="font-bold text-brand-navy text-xl mb-3">Domestic Carpets</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Deep extraction cleaning that pulls years of dirt, dust, and allergens from the base of your carpet pile, leaving it fresh and fast-drying.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="bg-brand-navy/5 w-12 h-12 rounded-full flex items-center justify-center text-brand-gold mb-6">
+             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+          </div>
+          <h3 class="font-bold text-brand-navy text-xl mb-3">Commercial & Office</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Heavy-duty cleaning for high-traffic commercial carpets. We restore office spaces with minimal disruption to your business hours.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="bg-brand-navy/5 w-12 h-12 rounded-full flex items-center justify-center text-brand-gold mb-6">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.514" /></svg>
+          </div>
+          <h3 class="font-bold text-brand-navy text-xl mb-3">Pet Urine & Odour</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Specialized enzyme treatments designed to break down pet urine crystals, permanently neutralizing stubborn odours and stains.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="bg-brand-navy/5 w-12 h-12 rounded-full flex items-center justify-center text-brand-gold mb-6">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>
+          </div>
+          <h3 class="font-bold text-brand-navy text-xl mb-3">Upholstery & Rugs</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Gentle yet effective deep cleaning for sofas, armchairs, and delicate rugs, bringing colors back to life and removing embedded dirt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. MEDIA & SEO CONTENT SECTION -->
+  <section class="py-16 bg-gray-50 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      
+      <!-- Video Embed & Client Text -->
+      <div class="w-full flex justify-center lg:justify-start">
+        <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-200 p-6 flex flex-col items-center max-w-sm">
+          
+          <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1940167409939845%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" class="rounded-xl shadow-inner bg-black"></iframe>
+          
+          <div class="mt-6 text-center w-full">
+            <p class="text-brand-navy font-bold text-lg leading-tight mb-2">"This came out of one carpet in Hull 😮"</p>
+            <p class="text-gray-600 text-sm mb-5 font-medium">Imagine what’s in yours... Watch how our machines extract the hidden dirt.</p>
+            <button onclick="document.getElementById('booking-modal').showModal()" class="text-brand-gold bg-brand-navy px-6 py-3 rounded-full font-bold text-sm w-full hover:bg-brand-navy/90 transition-colors shadow-md cursor-pointer">
+              MESSAGE FOR A QUOTE
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SEO Content -->
+      <div class="space-y-6">
+        <h2 class="text-3xl md:text-4xl font-display text-brand-navy italic">Trusted Carpet Cleaners in Hull</h2>
+        <p class="text-gray-600 leading-relaxed">
+          When searching for a dependable <strong class="text-brand-navy">carpet cleaner in Hull</strong>, you need a service that goes beyond standard vacuuming. At KBM Cleaning Services, we invest heavily in industrial-grade machines that operate at high heat and high pressure to completely flush out deeply embedded dirt, bacteria, and allergens.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          Whether you are dealing with tough pet stains in your living room, or need a full commercial floor refresh in the East Riding area, our targeted approach guarantees a brighter, fresher, and faster-drying carpet. We are fully insured, highly reviewed, and committed to delivering exceptional results for every client.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          Our comprehensive <strong class="text-brand-navy">Hull carpet cleaning services</strong> also extend to delicate upholstery, stubborn rug stains, and end-of-tenancy deep cleans. By using child- and pet-safe eco-friendly solutions alongside our heavy-duty extraction methods, we ensure your home isn't just visually spotless, but hygienically safe.
+        </p>
+        <div class="pt-4">
+          <button onclick="document.getElementById('booking-modal').showModal()" class="text-brand-navy font-bold hover:text-brand-gold transition-colors flex items-center gap-2 cursor-pointer">
+            Request your free quote <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. GALLERY GRID WITH LIGHTBOX, HOVER & SHINE EFFECTS -->
+  <section class="py-20 bg-brand-white px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-center text-3xl font-display text-brand-navy italic mb-10">Our Carpet Cleaning Transformations</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        
+        <!-- Image 1 -->
+        <div class="relative overflow-hidden rounded-2xl shadow-md cursor-pointer group" onclick="openLightbox('/images/carpet-after.jpg')">
+          <img src={img1} alt="Clean carpet in Hull" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
+          <!-- Shine Effect -->
+          <div class="absolute top-0 -left-[100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] transition-all duration-700 ease-in-out group-hover:left-[200%] z-10"></div>
+          <!-- Dark Overlay & Icon -->
+          <div class="absolute inset-0 bg-brand-navy/0 group-hover:bg-brand-navy/40 transition-colors duration-300 flex items-center justify-center z-20">
+            <svg class="w-10 h-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+          </div>
+        </div>
+
+        <!-- Image 2 -->
+        <div class="relative overflow-hidden rounded-2xl shadow-md cursor-pointer group" onclick="openLightbox('/images/carpet-after2.jpg')">
+          <img src={img2} alt="Professional carpet cleaning results" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
+          <!-- Shine Effect -->
+          <div class="absolute top-0 -left-[100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] transition-all duration-700 ease-in-out group-hover:left-[200%] z-10"></div>
+          <!-- Dark Overlay & Icon -->
+          <div class="absolute inset-0 bg-brand-navy/0 group-hover:bg-brand-navy/40 transition-colors duration-300 flex items-center justify-center z-20">
+            <svg class="w-10 h-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+          </div>
+        </div>
+
+        <!-- Image 3 -->
+        <div class="relative overflow-hidden rounded-2xl shadow-md cursor-pointer group" onclick="openLightbox('/images/carpet-after3.jpeg')">
+          <img src={img3} alt="Commercial carpet deep clean" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
+          <!-- Shine Effect -->
+          <div class="absolute top-0 -left-[100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] transition-all duration-700 ease-in-out group-hover:left-[200%] z-10"></div>
+          <!-- Dark Overlay & Icon -->
+          <div class="absolute inset-0 bg-brand-navy/0 group-hover:bg-brand-navy/40 transition-colors duration-300 flex items-center justify-center z-20">
+            <svg class="w-10 h-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+          </div>
+        </div>
+
+        <!-- Image 4 -->
+        <div class="relative overflow-hidden rounded-2xl shadow-md cursor-pointer group" onclick="openLightbox('/images/carpet-after4.jpeg')">
+          <img src={img4} alt="Upholstery and carpet restoration" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
+          <!-- Shine Effect -->
+          <div class="absolute top-0 -left-[100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] transition-all duration-700 ease-in-out group-hover:left-[200%] z-10"></div>
+          <!-- Dark Overlay & Icon -->
+          <div class="absolute inset-0 bg-brand-navy/0 group-hover:bg-brand-navy/40 transition-colors duration-300 flex items-center justify-center z-20">
+            <svg class="w-10 h-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FINAL CTA -->
+  <section class="py-24 bg-brand-navy text-center px-6 relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl"></div>
+    <div class="max-w-3xl mx-auto relative z-10">
+      <h2 class="text-4xl md:text-5xl font-display text-white italic mb-6">Ready to revitalize your space?</h2>
+      <p class="text-gray-300 text-lg mb-10">
+        Don't let trapped dirt and allergens ruin your carpets. Book Hull's leading deep clean specialists today.
+      </p>
+      <button onclick="document.getElementById('booking-modal').showModal()" class="bg-[#25D366] text-white px-10 py-5 rounded-full font-bold text-lg shadow-xl hover:bg-[#20bd5a] hover:-translate-y-1 transition-all flex items-center justify-center gap-3 mx-auto cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+        BOOK VIA WHATSAPP
+      </button>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX MODAL CODE -->
+  <dialog id="gallery-lightbox" class="mx-auto my-auto backdrop:bg-black/80 p-0 rounded-2xl shadow-2xl max-w-5xl w-[95%] border-none bg-transparent overflow-hidden">
+    <div class="relative flex items-center justify-center p-4">
+      <button onclick="document.getElementById('gallery-lightbox').close()" class="absolute top-0 right-0 m-4 bg-white/20 hover:bg-white/40 text-white w-10 h-10 rounded-full flex items-center justify-center text-xl cursor-pointer z-50 transition-colors backdrop-blur-md">✕</button>
+      <img id="lightbox-image" src="" alt="Enlarged view" class="w-full h-auto max-h-[85vh] object-contain rounded-2xl" />
+    </div>
+  </dialog>
+
+  <script is:inline>
+    // Open Lightbox
+    function openLightbox(imageSrc) {
+      const lightbox = document.getElementById('gallery-lightbox');
+      const lightboxImg = document.getElementById('lightbox-image');
+      lightboxImg.src = imageSrc;
+      lightbox.showModal();
+    }
+
+    // Close Lightbox when clicking outside the image (on the backdrop)
+    document.addEventListener('DOMContentLoaded', () => {
+      const lightbox = document.getElementById('gallery-lightbox');
+      if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) {
+            lightbox.close();
+          }
+        });
+      }
+    });
+  </script>
+
+  <style>
+    /* Add slight blur to the background when lightbox is open */
+    dialog#gallery-lightbox::backdrop {
+      backdrop-filter: blur(4px);
+    }
+  </style>
+
+</Layout>
