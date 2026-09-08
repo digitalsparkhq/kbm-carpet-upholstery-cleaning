@@ -1,11 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Optimized Images
-const img1 = "/images/carpet-after.jpg";
-const img2 = "/images/carpet-after2.jpg";
-const img3 = "/images/carpet-after3.jpeg";
-const img4 = "/images/carpet-after4.jpeg";
+// Replaced with your new Before & After sets
+const img1 = "/images/floor-carpet-before.jpg";
+const img2 = "/images/floor-carpet-after.jpg";
+const img3 = "/images/stair-carpet-before.jpg";
+const img4 = "/images/stair-carpet-after.jpg";
 
 const heroBg = "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=2940&auto=format&fit=crop";
 ---
@@ -136,9 +136,10 @@ const heroBg = "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=8
       <h2 class="text-center text-3xl font-display text-brand-navy italic mb-10">Our Carpet Cleaning Transformations</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         
-        <!-- Image 1 -->
-        <div class="relative overflow-hidden rounded-2xl shadow-md cursor-pointer group" onclick="openLightbox('/images/carpet-after.jpg')">
-          <img src={img1} alt="Clean carpet in Hull" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
+        <!-- SET 1: FLOOR BEFORE (Fixed onclick) -->
+        <div class="relative overflow-hidden rounded-2xl shadow-md cursor-pointer group" onclick={`openLightbox('${img1}')`}>
+          <span class="absolute top-3 left-3 bg-red-500 text-white text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full z-30 shadow-lg tracking-wider">BEFORE</span>
+          <img src={img1} alt="Floor carpet before cleaning" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
           <!-- Shine Effect -->
           <div class="absolute top-0 -left-[100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] transition-all duration-700 ease-in-out group-hover:left-[200%] z-10"></div>
           <!-- Dark Overlay & Icon -->
@@ -147,9 +148,10 @@ const heroBg = "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=8
           </div>
         </div>
 
-        <!-- Image 2 -->
-        <div class="relative overflow-hidden rounded-2xl shadow-md cursor-pointer group" onclick="openLightbox('/images/carpet-after2.jpg')">
-          <img src={img2} alt="Professional carpet cleaning results" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
+        <!-- SET 1: FLOOR AFTER (Fixed onclick) -->
+        <div class="relative overflow-hidden rounded-2xl shadow-md cursor-pointer group" onclick={`openLightbox('${img2}')`}>
+          <span class="absolute top-3 right-3 bg-[#25D366] text-white text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full z-30 shadow-lg tracking-wider">AFTER</span>
+          <img src={img2} alt="Floor carpet after cleaning" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
           <!-- Shine Effect -->
           <div class="absolute top-0 -left-[100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] transition-all duration-700 ease-in-out group-hover:left-[200%] z-10"></div>
           <!-- Dark Overlay & Icon -->
@@ -158,9 +160,10 @@ const heroBg = "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=8
           </div>
         </div>
 
-        <!-- Image 3 -->
-        <div class="relative overflow-hidden rounded-2xl shadow-md cursor-pointer group" onclick="openLightbox('/images/carpet-after3.jpeg')">
-          <img src={img3} alt="Commercial carpet deep clean" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
+        <!-- SET 2: STAIRS BEFORE (Fixed onclick) -->
+        <div class="relative overflow-hidden rounded-2xl shadow-md cursor-pointer group" onclick={`openLightbox('${img3}')`}>
+          <span class="absolute top-3 left-3 bg-red-500 text-white text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full z-30 shadow-lg tracking-wider">BEFORE</span>
+          <img src={img3} alt="Stair carpet before cleaning" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
           <!-- Shine Effect -->
           <div class="absolute top-0 -left-[100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] transition-all duration-700 ease-in-out group-hover:left-[200%] z-10"></div>
           <!-- Dark Overlay & Icon -->
@@ -169,9 +172,10 @@ const heroBg = "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=8
           </div>
         </div>
 
-        <!-- Image 4 -->
-        <div class="relative overflow-hidden rounded-2xl shadow-md cursor-pointer group" onclick="openLightbox('/images/carpet-after4.jpeg')">
-          <img src={img4} alt="Upholstery and carpet restoration" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
+        <!-- SET 2: STAIRS AFTER (Fixed onclick) -->
+        <div class="relative overflow-hidden rounded-2xl shadow-md cursor-pointer group" onclick={`openLightbox('${img4}')`}>
+          <span class="absolute top-3 right-3 bg-[#25D366] text-white text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full z-30 shadow-lg tracking-wider">AFTER</span>
+          <img src={img4} alt="Stair carpet after cleaning" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110" />
           <!-- Shine Effect -->
           <div class="absolute top-0 -left-[100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] transition-all duration-700 ease-in-out group-hover:left-[200%] z-10"></div>
           <!-- Dark Overlay & Icon -->
