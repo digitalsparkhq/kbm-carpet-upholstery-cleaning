@@ -1,7 +1,8 @@
 ---
 /* src/components/Services.astro */
 const services = [
-  { title: "Carpet Cleaning Services in Hull", desc: "Industrial hot water extraction for a deep, hygienic revive.", icon: "🧼" },
+  // Added the link property here to connect to our new SEO landing page
+  { title: "Carpet Cleaning Services in Hull", desc: "Industrial hot water extraction for a deep, hygienic revive.", icon: "🧼", link: "/carpet-cleaning-hull" },
   { title: "Upholstery Cleaning Hull", desc: "Expert cleaning for sofas and armchairs, removing stains and odours.", icon: "🛋️" },
   { title: "Stain Protection", desc: "Asgard stain guarding to protect your fabrics for 6-12 months.", icon: "🛡️" },
   { title: "Rug Cleaning Hull", desc: "Bringing tired, high-traffic area rugs back to their original vibrance.", icon: "🎨" },
@@ -26,16 +27,32 @@ const services = [
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {services.map((service, index) => (
-        <div 
-          class="reveal-pop-up p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:border-brand-gold transition-all group hover:-translate-y-2 cursor-default"
-          style={`transition-delay: ${index * 100}ms`}
-        >
-          <div class="text-4xl mb-6 group-hover:scale-125 transition-transform duration-500 inline-block">{service.icon}</div>
-          <h3 class="font-display text-xl mb-3 text-brand-navy font-bold">{service.title}</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">{service.desc}</p>
-        </div>
-      ))}
+      {services.map((service, index) => {
+        // Dynamic tag: if there's a link, render an <a> tag, otherwise render a <div>
+        const Tag = service.link ? 'a' : 'div';
+        
+        return (
+          <Tag 
+            href={service.link}
+            class={`reveal-pop-up p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:border-brand-gold transition-all group hover:-translate-y-2 flex flex-col h-full ${service.link ? 'cursor-pointer' : 'cursor-default'}`}
+            style={`transition-delay: ${index * 100}ms`}
+          >
+            <div class="text-4xl mb-6 group-hover:scale-125 transition-transform duration-500 inline-block origin-left">{service.icon}</div>
+            <h3 class="font-display text-xl mb-3 text-brand-navy font-bold">{service.title}</h3>
+            <p class="text-sm text-gray-500 leading-relaxed flex-grow">{service.desc}</p>
+            
+            {/* If it has a link, show a cool 'Learn More' indicator on hover */}
+            {service.link && (
+              <div class="mt-4 text-brand-gold font-bold text-sm flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Learn More 
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            )}
+          </Tag>
+        );
+      })}
     </div>
   </div>
 </section>
